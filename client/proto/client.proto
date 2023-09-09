@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package grpc;
+
+option go_package = "client/proto";
+
+
+service Greeter {
+  rpc Notify(EmptyRequest) returns (HelloReply) {}
+  rpc QuantKeys(EmptyRequest) returns (HelloReply) {}
+}
+
+// The request message containing the user's name.
+message EmptyRequest {
+}
+
+// The response message containing the greetings
+message HelloReply {
+  int32 response = 1;
+}

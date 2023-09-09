@@ -1,0 +1,16 @@
+FROM golang:1.20
+
+WORKDIR /app
+
+COPY go.mod .
+COPY main.go .
+COPY parametro_init.txt .
+COPY ./proto ./proto
+
+
+RUN go get google.golang.org/grpc
+RUN go build -o bin .
+
+
+
+ENTRYPOINT [ "/app/bin" ]
